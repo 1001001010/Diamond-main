@@ -27,7 +27,7 @@
                         <div class="flex items-center justify-center w-10 h-10 p-2 bg-black/10 rounded-full">
                             <img src="{{ asset('Images/header/cart.png') }}" alt="">
                         </div>
-                        <span>Мои покупки</span>
+                        <span>Мои покупки</span>    
                     </a>
                 </li>
                 <li class="w-fit">
