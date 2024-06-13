@@ -1,7 +1,7 @@
 <header class="w-full flex flex-col gap-4 relative font-PoiretOne">
     <div class="w-full h-6 bg-black"></div>
     <div class="container mx-auto max-w-[1280px] p-4 flex items-center gap-6 justify-between border-b border-black/10">
-        <a href="index.html">
+        <a href="{{ route('index') }}">
             <img src="{{ asset('Images/header/logo.png') }}" alt="" class="w-40">
         </a>
         <nav id="menu"
@@ -26,8 +26,14 @@
                     <img src="{{ asset('Images/header/cart.png') }}" alt="" class="w-8">
                 </a>
             </div>
-            <a href="{{ route('login') }}"
-                class="px-4 py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black hover:bg-transparent">Вход</a>
+            <a href="{{ route('profile') }}"
+                class="px-4 py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black hover:bg-transparent">
+                @guest
+                    Вход
+                @else
+                    Профиль
+                @endguest
+            </a>
         </nav>
         <button id="toggler" class="lg:hidden">
             <img src="{{ asset('Images/header/menu.png') }}" alt="">

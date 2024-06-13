@@ -1,52 +1,69 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('layouts.app')
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+@section('content')
+    <main class="flex flex-col gap-14 py-10 container mx-auto max-w-[1280px] px-4 grow">
+        <div class="flex flex-col gap-6 items-center justify-center grow">
+            <p class="text-3xl font-PoiretOne uppercase text-center">Регистрация</p>
+            <form class="flex flex-col gap-4 items-center w-full md:w-2/3 lg:w-1/2" action="{{ route('register') }}"
+                method="POST">
+                @csrf
+                <div class="flex items-center max-md:flex-col gap-4 w-full">
+                    <input type="text" name="surname"
+                        class="w-full md:w-1/3 rounded-xl border border-black/10 focus:outline-none px-4 py-2"
+                        placeholder="Фамилия">
+                    <input type="text" name="name"
+                        class="w-full md:w-1/3 rounded-xl border border-black/10 focus:outline-none px-4 py-2"
+                        placeholder="Имя">
+                    <input type="text" name="fathername"
+                        class="w-full md:w-1/3 rounded-xl border border-black/10 focus:outline-none px-4 py-2"
+                        placeholder="Отчество">
+                </div>
+                <div class="flex items-center max-md:flex-col gap-4 w-full">
+                    <input type="email" name="email"
+                        class="w-full md:w-1/2 rounded-xl border border-black/10 focus:outline-none px-4 py-2"
+                        placeholder="Email">
+                    <input type="password" name="password"
+                        class="w-full md:w-1/2 rounded-xl border border-black/10 focus:outline-none px-4 py-2"
+                        placeholder="••••••">
+                </div>
+                <div class="flex items-center max-md:flex-col gap-4 w-full">
+                    <input type="text" name="phone"
+                        class="w-full md:w-1/2 rounded-xl border border-black/10 focus:outline-none px-4 py-2"
+                        placeholder="Телефон">
+                    <input type="text" name="city"
+                        class="w-full md:w-1/2 rounded-xl border border-black/10 focus:outline-none px-4 py-2"
+                        placeholder="Город">
+                </div>
+                <div class="flex items-center max-md:flex-col gap-4 w-full">
+                    <div class="flex flex-col gap-2 w-full md:w-1/2">
+                        <p class="font-PoiretOne text-2xl">Пол</p>
+                        <div class="flex items-center gap-2">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="gender" value="male">
+                                <span>Мужской</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" name="gender" value="female">
+                                <span>Женский</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 w-full md:w-1/2">
+                        <p class="font-PoiretOne text-2xl">Дата рождения</p>
+                        <input type="date" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2"
+                            name="birthday">
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-[260px] px-4 py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black hover:bg-transparent text-center font-PoiretOne">Зарегистрироваться</button>
+            </form>
+            <div class="flex items-center justify-center gap-4 w-full md:w-2/3 lg:w-1/2">
+                <div class="w-1/3 h-px bg-black/10"></div>
+                <p class="font-PoiretOne">или</p>
+                <div class="w-1/3 h-px bg-black/10"></div>
+            </div>
+            <a href="{{ route('login') }}"
+                class="w-[260px] px-4 py-2 rounded-xl border border-[#FF6C01] bg-[#FF6C01] text-white transition-all duration-500 hover:text-[#FF6C01] hover:bg-transparent text-center font-PoiretOne">Войти</a>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </main>
+@endsection
