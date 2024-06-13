@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../Assets/CSS/main.css">
+    <title>Админ панель</title>
+</head>
+<body class="flex flex-col min-h-screen font-Spectral text-xl">
+    <header class="w-full flex flex-col gap-4 relative font-PoiretOne">
+        <div class="w-full h-6 bg-black"></div>
+        <div class="container mx-auto max-w-[1280px] p-4 flex items-center gap-6 justify-between border-b border-black/10">
+            <a href="../index.html">
+                <img src="../Assets/Images/header/logo.png" alt="" class="w-40">
+            </a>
+            <nav id="menu" class="flex items-center gap-6 max-lg:bg-white max-lg:absolute max-lg:top-0 max-lg:-translate-y-full max-lg:left-0 max-lg:flex-col max-lg:w-full transition-all duration-500 max-lg:py-6 max-lg:z-[4]">
+                <a href="catalog.html" class="flex flex-col after:w-0 after:h-px after:bg-black after:transition-all after:duration-300 hover:after:w-full">Каталог</a>
+                <form action="" class="relative">
+                    <input type="text" class="pl-4 pr-10 py-2 rounded-xl border border-black/10 focus:outline-none" placeholder="Хочу найти">
+                    <button class="absolute right-2 top-1/2 -translate-y-1/2">
+                        <img src="../Assets/Images/header/search.png" alt="" class="w-8">
+                    </button>
+                </form>
+                <div class="flex items-center gap-4">
+                    <a href="profile.html">
+                        <img src="../Assets/Images/header/profile.png" alt="" class="w-8">
+                    </a>
+                    <a href="favourites.html">
+                        <img src="../Assets/Images/header/heart.png" alt="" class="w-8">
+                    </a>
+                    <a href="cart.html">
+                        <img src="../Assets/Images/header/cart.png" alt="" class="w-8">
+                    </a>
+                </div>
+                <a href="auth.html" class="px-4 py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black hover:bg-transparent">Вход</a>
+            </nav>
+            <button id="toggler" class="lg:hidden">
+                <img src="../Assets/Images/header/menu.png" alt="">
+            </button>
+        </div>
+        <div id="overlay" class="w-full fixed inset-0 top-32 bg-black/70 max-lg:z-[3] hidden lg:hidden"></div>
+    </header>
+
+    <main class="flex flex-col gap-14 py-10 container mx-auto max-w-[1280px] px-4">
+        <div class="flex flex-col gap-6">
+            <p class="text-3xl font-PoiretOne uppercase">Добавление товара</p>
+            <form action="" class="flex flex-col gap-4 w-full md:w-1/2 xl:w-1/3">
+                <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2" placeholder="Наименование товара">
+                <textarea class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2" placeholder="Описание товара"></textarea>   
+                <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2" placeholder="Цена">
+                <input type="file" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2">
+                <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2" placeholder="Объём">
+                <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2" placeholder="Состав">
+                <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2" placeholder="Бренд">
+                <button class="w-[260px] px-4 py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black hover:bg-transparent text-center font-PoiretOne">Добавить</button>
+            </form>
+        </div>
+        <div class="flex flex-col gap-6">
+            <p class="text-3xl font-PoiretOne uppercase">Просмотр товаров</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <div class="flex flex-col gap-4">
+                    <a href="product.html" class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
+                        <img src="../Assets/Images/products/1.png" alt="" class="transition-all duration-500 group-hover:scale-110">
+                    </a>
+                    <p class="font-PoiretOne">Nina Ricci Nina Illusion Парфюмерная вода 30 мл</p>
+                    <div class="flex items-center gap-4">
+                        <a href="edit.html" class="w-8 h-8">
+                            <img src="../Assets/Images/products/edit.svg" alt="">
+                        </a>
+                        <button class="w-8 h-8">
+                            <img src="../Assets/Images/products/delete.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="container mx-auto max-w-[1280px] p-4 flex max-md:flex-col items-center md:justify-between gap-6 mt-auto border-t border-black/10">
+        <a href="../index.html">
+            <img src="../Assets/Images/header/logo.png" alt="" class="w-40">
+        </a>
+        <div class="flex max-md:flex-col lg:items-start gap-6">
+            <div class="flex flex-col">
+                <p class="text-base opacity-50">Часы работы</p>
+                <p class="font-PoiretOne">ежедневно 9:00-21:00</p>
+            </div>
+            <div class="flex flex-col">
+                <p class="text-base opacity-50">Телефон</p>
+                <a href="tel:+7 (495) 109 42 14" class="font-PoiretOne">+7 (495) 109 42 14</a>
+            </div>
+            <div class="flex flex-col">
+                <p class="text-base opacity-50">Соцсети</p>
+                <div class="flex items-center gap-4">
+                    <a href="#" target="_blank" class="w-8">
+                        <img src="../Assets/Images/socials/tg.png" alt="">
+                    </a>
+                    <a href="#" target="_blank" class="w-8">
+                        <img src="../Assets/Images/socials/vk.png" alt="">
+                    </a>
+                    <a href="#" target="_blank" class="w-8">
+                        <img src="../Assets/Images/socials/whatsapp.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="../Assets/JS/main.js"></script>
+</body>
+</html>
