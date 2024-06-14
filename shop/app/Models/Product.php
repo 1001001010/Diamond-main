@@ -17,6 +17,10 @@ class Product extends Model
     'volume',
     'compound',
     'brand'
-    
     ];
+
+    public function likes()
+    {
+        return $this->belongsTo(Like::class);
+    }
 }

@@ -13,9 +13,15 @@
                 <button
                     class="w-[260px] px-4 py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black hover:bg-transparent text-center font-PoiretOne">Добавить
                     в корзину</button>
-                <button
-                    class="w-[260px] px-4 py-2 rounded-xl border border-[#FF6C01] bg-[#FF6C01] text-white transition-all duration-500 hover:text-[#FF6C01] hover:bg-transparent text-center font-PoiretOne">Добавить
-                    в избранное</button>
+                @if (isset($like))
+                    <a href="{{ route('ToLike', ['product_id' => $product->id]) }}"
+                        class="w-[260px] px-4 py-2 rounded-xl border border-[#FF6C01] hover:bg-[#FF6C01] hover:text-white transition-all duration-500 text-[#FF6C01] bg-transparent text-center font-PoiretOne">Удалить
+                        из избранного</a>
+                @else
+                    <a href="{{ route('ToLike', ['product_id' => $product->id]) }}"
+                        class="w-[260px] px-4 py-2 rounded-xl border border-[#FF6C01] bg-[#FF6C01] text-white transition-all duration-500 hover:text-[#FF6C01] hover:bg-transparent text-center font-PoiretOne">Добавить
+                        в избранное</a>
+                @endif
             </div>
         </div>
         <div id="tabs">

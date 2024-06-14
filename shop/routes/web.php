@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\IsAdmin;
 
@@ -13,6 +14,9 @@ Route::post('/search', [HomeController::class, 'search'])->name('Search');
 
 Route::post('/profile/edit', [ProfileController::class, 'edit_profile'])->middleware(['auth', 'verified'])->name('editProfile');
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware(['auth', 'verified'])->name('profile');
+
+Route::get('/liked/add/{product_id}', [LikeController::class, 'add_liked'])->name('ToLike')->middleware(['auth', 'verified']);
+Route::get('/liked/open', [LikeController::class, 'open_liked'])->name('OpenLike')->middleware(['auth', 'verified']);
 
 Route::get('/admin', [AdminController::class, 'index'])->name('Admin')->middleware([IsAdmin::class]);
 Route::get('/admin/delete/{product_id}', [AdminController::class, 'delete_product'])->name('DeleteProduct')->middleware([IsAdmin::class]);

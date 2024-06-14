@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Like;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,8 @@ class HomeController extends Controller
     {
         try {
             $product = Product::findorFail($product_id);
-            return view('product', ['product' => $product]);
+            $like = Like::where('user_id', Auth::id())->where('product_id', $product_id)->first();
+            return view('product', ['product' => $product, 'like' => $like]);
         } catch (ModelNotFoundException $e) {
             abort(404);
         }
