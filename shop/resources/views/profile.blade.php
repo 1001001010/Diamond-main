@@ -14,7 +14,7 @@
                 </li>
                 @if (Auth::user() and Auth::user()->is_admin == 1)
                     <li class="w-fit">
-                        <a href="{{ route('admin') }}" class="flex items-center gap-2 py-2">
+                        <a href="{{ route('Admin') }}" class="flex items-center gap-2 py-2">
                             <div class="flex items-center justify-center w-10 h-10 p-2 bg-black/10 rounded-full">
                                 <img src="{{ asset('Images/header/profile.png') }}" alt="">
                             </div>
@@ -27,7 +27,7 @@
                         <div class="flex items-center justify-center w-10 h-10 p-2 bg-black/10 rounded-full">
                             <img src="{{ asset('Images/header/cart.png') }}" alt="">
                         </div>
-                        <span>Мои покупки</span>    
+                        <span>Мои покупки</span>
                     </a>
                 </li>
                 <li class="w-fit">

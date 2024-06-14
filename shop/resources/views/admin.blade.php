@@ -4,20 +4,24 @@
     <main class="flex flex-col gap-14 py-10 container mx-auto max-w-[1280px] px-4">
         <div class="flex flex-col gap-6">
             <p class="text-3xl font-PoiretOne uppercase">Добавление товара</p>
-            <form action="" class="flex flex-col gap-4 w-full md:w-1/2 xl:w-1/3">
+            <form action="{{ route('NewPosition') }}" class="flex flex-col gap-4 w-full md:w-1/2 xl:w-1/3" method="POST"
+                enctype="multipart/form-data">
+                @csrf
                 <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2"
-                    placeholder="Наименование товара">
-                <textarea class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2" placeholder="Описание товара"></textarea>
+                    name="name" placeholder="Наименование товара">
+                <textarea class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2" name="description"
+                    placeholder="Описание товара"></textarea>
                 <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2"
-                    placeholder="Цена">
-                <input type="file" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2">
+                    name="price" placeholder="Цена">
+                <input type="file" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2"
+                    name="photo">
                 <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2"
-                    placeholder="Объём">
+                    placeholder="Объём" name="volume">
                 <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2"
-                    placeholder="Состав">
+                    placeholder="Состав" name="compound">
                 <input type="text" class="w-full rounded-xl border border-black/10 focus:outline-none px-4 py-2"
-                    placeholder="Бренд">
-                <button
+                    placeholder="Бренд" name="brand">
+                <button type="submit"
                     class="w-[260px] px-4 py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black hover:bg-transparent text-center font-PoiretOne">Добавить</button>
             </form>
         </div>
@@ -27,16 +31,16 @@
                 <div class="flex flex-col gap-4">
                     <a href="product.html"
                         class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
-                        <img src="../Assets/Images/products/1.png" alt=""
+                        <img src="{{ asset('Images/products/1.png') }}" alt=""
                             class="transition-all duration-500 group-hover:scale-110">
                     </a>
                     <p class="font-PoiretOne">Nina Ricci Nina Illusion Парфюмерная вода 30 мл</p>
                     <div class="flex items-center gap-4">
                         <a href="edit.html" class="w-8 h-8">
-                            <img src="../Assets/Images/products/edit.svg" alt="">
+                            <img src="{{ asset('Images/products/edit.svg') }}" alt="">
                         </a>
                         <button class="w-8 h-8">
-                            <img src="../Assets/Images/products/delete.svg" alt="">
+                            <img src="{{ asset('Images/products/delete.svg') }}" alt="">
                         </button>
                     </div>
                 </div>
