@@ -15,6 +15,16 @@ class HomeController extends Controller
     }
     public function catalog()
     {
-        return view('catalog');
+        $products = Product::latest()->get();
+        return view('catalog', ['products' => $products]);
+    }
+    public function product($product_id)
+    {
+        try {
+            $product = Product::findorFail($product_id);
+            return view('product', ['product' => $product]);
+        } catch (ModelNotFoundException $e) {
+            abort(404);
+        }
     }
 }

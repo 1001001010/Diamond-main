@@ -28,22 +28,24 @@
         <div class="flex flex-col gap-6">
             <p class="text-3xl font-PoiretOne uppercase">Просмотр товаров</p>
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-                <div class="flex flex-col gap-4">
-                    <a href="product.html"
-                        class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
-                        <img src="{{ asset('Images/products/1.png') }}" alt=""
-                            class="transition-all duration-500 group-hover:scale-110">
-                    </a>
-                    <p class="font-PoiretOne">Nina Ricci Nina Illusion Парфюмерная вода 30 мл</p>
-                    <div class="flex items-center gap-4">
-                        <a href="edit.html" class="w-8 h-8">
-                            <img src="{{ asset('Images/products/edit.svg') }}" alt="">
+                @foreach ($products as $item)
+                    <div class="flex flex-col gap-4">
+                        <a href="product.html"
+                            class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
+                            <img src="{{ asset($item->photo) }}" alt=""
+                                class="transition-all duration-500 group-hover:scale-110">
                         </a>
-                        <button class="w-8 h-8">
-                            <img src="{{ asset('Images/products/delete.svg') }}" alt="">
-                        </button>
+                        <p class="font-PoiretOne">{{ $item->name }}</p>
+                        <div class="flex items-center gap-4">
+                            <a href="edit.html" class="w-8 h-8">
+                                <img src="{{ asset('Images/header/edit.svg') }}" alt="">
+                            </a>
+                            <a class="w-8 h-8" href="{{ route('DeleteProduct', ['product_id' => $item->id]) }}">
+                                <img src="{{ asset('Images/header/delete.svg') }}" alt="">
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </main>
