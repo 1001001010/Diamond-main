@@ -13,4 +13,8 @@ class HomeController extends Controller
         $product_list = Product::latest()->take(5)->get();
         return view('welcome', ['product' => $product_list]);
     }
+    public function catalog()
+    {
+        
+    }
 }
