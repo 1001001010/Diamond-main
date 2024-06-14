@@ -36,4 +36,24 @@ class HomeController extends Controller
         $positions = Product::where('name', 'like', "%{$word}%")->orWhere('description', 'like', "%{$word}%")->orderBy('id')->get();
         return view('search', ['positions' => $positions]);
     }
+    public function validate(Request $request)
+    {
+        $minPrice = $request->input('min_price');
+        $maxPrice = $request->input('max_price');
+    
+        $products = Product::query();
+    
+        if ($minPrice) {
+            $products->where('price', '>=', $minPrice);
+        }
+    
+        if ($maxPrice) {
+            $products->where('price', '<=', $maxPrice);
+        }
+
+        $products = $products->get();
+    
+        // Возвращаем отфильтрованные продукты
+        return view('search', ['positions' => $products]);
+    }
 }
