@@ -15,6 +15,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Like::class);
     }
+    public function basket()
+    {
+        return $this->hasOne(Basket::class);
+    }
 
     /**
      * The attributes that are mass assignable.

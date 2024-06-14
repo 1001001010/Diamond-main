@@ -10,9 +10,11 @@
                     ({{ $product->volume }} мл)</p>
                 <p class="rounded-xl p-4 border border-black/10 w-fit">Объём: {{ $product->volume }}</p>
                 <p class="text-3xl">{{ $product->price }} ₽</p>
-                <button
-                    class="w-[260px] px-4 py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black hover:bg-transparent text-center font-PoiretOne">Добавить
-                    в корзину</button>
+                <a href="{{ route('ToBasket', ['product_id' => $product->id]) }}"
+                    class="w-[260px] px-4
+                    py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black
+                    hover:bg-transparent text-center font-PoiretOne">Добавить
+                    в корзину</a>
                 @if (isset($like))
                     <a href="{{ route('ToLike', ['product_id' => $product->id]) }}"
                         class="w-[260px] px-4 py-2 rounded-xl border border-[#FF6C01] hover:bg-[#FF6C01] hover:text-white transition-all duration-500 text-[#FF6C01] bg-transparent text-center font-PoiretOne">Удалить

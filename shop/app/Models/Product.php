@@ -23,4 +23,8 @@ class Product extends Model
     {
         return $this->belongsTo(Like::class);
     }
+    public function basket()
+    {
+        return $this->belongsTo(Basket::class);
+    }
 }

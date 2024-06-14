@@ -23,7 +23,7 @@
                 <a href="{{ route('OpenLike') }}">
                     <img src="{{ asset('Images/header/heart.png') }}" alt="" class="w-8">
                 </a>
-                <a href="Pages/cart.html">
+                <a href="{{ route('OpenBasket') }}">
                     <img src="{{ asset('Images/header/cart.png') }}" alt="" class="w-8">
                 </a>
             </div>
