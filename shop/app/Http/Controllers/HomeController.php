@@ -15,6 +15,6 @@ class HomeController extends Controller
     }
     public function catalog()
     {
-        
+        return view('catalog');
     }
 }

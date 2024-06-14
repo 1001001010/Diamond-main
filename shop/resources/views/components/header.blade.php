@@ -6,7 +6,7 @@
         </a>
         <nav id="menu"
             class="flex items-center gap-6 max-lg:bg-white max-lg:absolute max-lg:top-0 max-lg:-translate-y-full max-lg:left-0 max-lg:flex-col max-lg:w-full transition-all duration-500 max-lg:py-6 max-lg:z-[4]">
-            <a href="Pages/catalog.html"
+            <a href="{{ route('catalog') }}"
                 class="flex flex-col after:w-0 after:h-px after:bg-black after:transition-all after:duration-300 hover:after:w-full">Каталог</a>
             <form action="" class="relative">
                 <input type="text" class="pl-4 pr-10 py-2 rounded-xl border border-black/10 focus:outline-none"
