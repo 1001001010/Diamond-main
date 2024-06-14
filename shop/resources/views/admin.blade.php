@@ -37,7 +37,7 @@
                         </a>
                         <p class="font-PoiretOne">{{ $item->name }}</p>
                         <div class="flex items-center gap-4">
-                            <a href="edit.html" class="w-8 h-8">
+                            <a href="{{ route('EditTovar', ['product_id' => $item->id]) }}" class="w-8 h-8">
                                 <img src="{{ asset('Images/header/edit.svg') }}" alt="">
                             </a>
                             <a class="w-8 h-8" href="{{ route('DeleteProduct', ['product_id' => $item->id]) }}">

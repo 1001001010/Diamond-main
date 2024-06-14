@@ -15,7 +15,7 @@ class AdminController extends Controller
         return view('admin', ['products' => $products]);
     }
 
-    public function new_position(Request $request) 
+    public function new_product(Request $request) 
     {
         // Добавление ноового товара
         $validated = $request->validate([
@@ -55,4 +55,47 @@ class AdminController extends Controller
         Product::where('id', $product_id)->delete();
         return redirect()->back();
     }
+    public function edit_product($product_id) 
+    {
+        // Открытие редактирование товара
+        $product = Product::findorFail($product_id);
+        return view('edit', ['product' => $product]);
+    }
+    public function save_edit_product($position_id, Request $request)
+    {
+        // Сохранение редактирования товара
+        $validated = $request->validate([
+            'name' => 'string',
+            'description' => 'string',
+            'price' => 'integer',
+            'photo' => 'image|mimes:jpg,png,jpeg,webp|max:2048',
+            'volume' => 'string',
+            'compound' => 'string',
+            'brand' => 'string',
+        ]);
+
+        $position = Product::find($position_id);
+
+        // Сохраняем текущее состояние объекта в отдельную переменную
+        $originalPosition = $position->replicate();
+
+        if ($request->hasFile('photo')) {
+            $name = time(). "." . $validated['photo']->extension();
+            $destination = 'public/products';
+            $path = $request->photo->storeAs($destination, $name);
+
+            $position->photo = 'storage/products/' . $name;
+        }
+
+        $position->name = $validated['name'] ?? $originalPosition->name;
+        $position->description = $validated['description'] ?? $originalPosition->description;
+        $position->price = $validated['price'] ?? $originalPosition->price;
+        $position->volume = $validated['volume'] ?? $originalPosition->volume;
+        $position->compound = $validated['compound'] ?? $originalPosition->compound;
+        $position->brand = $validated['brand'] ?? $originalPosition->brand;
+
+        $position->save();
+
+        return redirect()->back();
+    }   
 }
