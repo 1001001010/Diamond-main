@@ -27,4 +27,10 @@ class HomeController extends Controller
             abort(404);
         }
     }
+    public function search(Request $request) {
+        // Поиск
+        $word = $request->word;
+        $positions = Product::where('name', 'like', "%{$word}%")->orWhere('description', 'like', "%{$word}%")->orderBy('id')->get();
+        return view('search', ['positions' => $positions]);
+    }
 }

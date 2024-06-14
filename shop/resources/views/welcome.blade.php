@@ -12,7 +12,7 @@
                             <img src="{{ asset($item->photo) }}" alt=""
                                 class="transition-all duration-500 group-hover:scale-110 w-full">
                         </a>
-                        <p class="text-base opacity-50">Парфюмерная вода</p>
+                        <p class="text-base opacity-50">{{ $item->brand }}</p>
                         <p class="font-PoiretOne">{{ $item->name }}</p>
                         <p class="text-2xl">{{ $item->price }}₽</p>
                     </div>
