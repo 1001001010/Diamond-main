@@ -16,6 +16,7 @@ Route::post('/validate', [HomeController::class, 'validate'])->name('Validate');
 
 Route::post('/profile/edit', [ProfileController::class, 'edit_profile'])->middleware(['auth', 'verified'])->name('editProfile');
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware(['auth', 'verified'])->name('profile');
+Route::get('/buy', [ProfileController::class, 'buy'])->middleware(['auth', 'verified'])->name('Buy');
 
 Route::get('/liked/add/{product_id}', [LikeController::class, 'add_liked'])->name('ToLike')->middleware(['auth', 'verified']);
 Route::get('/liked/open', [LikeController::class, 'open_liked'])->name('OpenLike')->middleware(['auth', 'verified']);

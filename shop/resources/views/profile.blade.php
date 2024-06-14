@@ -105,66 +105,20 @@
             <div id="tab-2" class="w-full lg:w-2/3 flex flex-col gap-6">
                 <p class="text-3xl font-PoiretOne uppercase">МОИ ПОКУПКИ</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="flex flex-col gap-4">
-                        <a href="product.html"
-                            class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
-                            <img src="{{ asset('Images/products/1.png') }}" alt=""
-                                class="transition-all duration-500 group-hover:scale-110">
-                        </a>
-                        <p class="text-base opacity-50">Парфюмерная вода</p>
-                        <p class="font-PoiretOne">Nina Ricci Nina Illusion Парфюмерная вода 30 мл</p>
-                        <p class="text-2xl">5 244 ₽</p>
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <a href="product.html"
-                            class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
-                            <img src="{{ asset('Images/products/1.png') }}" alt=""
-                                class="transition-all duration-500 group-hover:scale-110">
-                        </a>
-                        <p class="text-base opacity-50">Парфюмерная вода</p>
-                        <p class="font-PoiretOne">Nina Ricci Nina Illusion Парфюмерная вода 30 мл</p>
-                        <p class="text-2xl">5 244 ₽</p>
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <a href="product.html"
-                            class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
-                            <img src="{{ asset('Images/products/1.png') }}" alt=""
-                                class="transition-all duration-500 group-hover:scale-110">
-                        </a>
-                        <p class="text-base opacity-50">Парфюмерная вода</p>
-                        <p class="font-PoiretOne">Nina Ricci Nina Illusion Парфюмерная вода 30 мл</p>
-                        <p class="text-2xl">5 244 ₽</p>
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <a href="product.html"
-                            class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
-                            <img src="{{ asset('Images/products/1.png') }}" alt=""
-                                class="transition-all duration-500 group-hover:scale-110">
-                        </a>
-                        <p class="text-base opacity-50">Парфюмерная вода</p>
-                        <p class="font-PoiretOne">Nina Ricci Nina Illusion Парфюмерная вода 30 мл</p>
-                        <p class="text-2xl">5 244 ₽</p>
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <a href="product.html"
-                            class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
-                            <img src="{{ asset('Images/products/1.png') }}" alt=""
-                                class="transition-all duration-500 group-hover:scale-110">
-                        </a>
-                        <p class="text-base opacity-50">Парфюмерная вода</p>
-                        <p class="font-PoiretOne">Nina Ricci Nina Illusion Парфюмерная вода 30 мл</p>
-                        <p class="text-2xl">5 244 ₽</p>
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <a href="product.html"
-                            class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
-                            <img src="{{ asset('Images/products/1.png') }}" alt=""
-                                class="transition-all duration-500 group-hover:scale-110">
-                        </a>
-                        <p class="text-base opacity-50">Парфюмерная вода</p>
-                        <p class="font-PoiretOne">Nina Ricci Nina Illusion Парфюмерная вода 30 мл</p>
-                        <p class="text-2xl">5 244 ₽</p>
-                    </div>
+                    @foreach ($buy as $item)
+                        @foreach ($item->products as $item)
+                            <div class="flex flex-col gap-4">
+                                <a href="product.html"
+                                    class="relative group overflow-hidden rounded-xl border border-black/10 shadow-[0px_0px_13px_-7px_black]">
+                                    <img src="{{ asset($item->photo) }}" alt=""
+                                        class="transition-all duration-500 group-hover:scale-110">
+                                </a>
+                                <p class="text-base opacity-50">{{ $item->brand }}</p>
+                                <p class="font-PoiretOne">{{ $item->name }}</p>
+                                <p class="text-2xl">{{ $item->price }} ₽</p>
+                            </div>
+                        @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>

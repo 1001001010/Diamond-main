@@ -48,9 +48,9 @@
                             </label>
                         </div>
                     </div>
-                    <button
+                    <a href="{{ route('Buy') }}"
                         class="px-4 py-2 rounded-xl border border-black bg-black text-white transition-all duration-500 hover:text-black hover:bg-transparent text-center font-PoiretOne">Оформить
-                        заказ</button>
+                        заказ</a>
                 </div>
             </div>
         </div>

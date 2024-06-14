@@ -27,4 +27,8 @@ class Product extends Model
     {
         return $this->belongsTo(Basket::class);
     }
+    public function purchase()
+    {
+        return $this->belongsTo(Purchase::class);
+    }
 }
